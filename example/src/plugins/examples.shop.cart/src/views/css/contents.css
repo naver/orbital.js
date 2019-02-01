@@ -1,0 +1,55 @@
+div.cart {
+    padding: 10px 35px;
+    max-width: 700px;
+    font-size: 0.9em;
+}
+
+div.cart > h1 {
+    font-size: 1.4em;
+}
+
+div.cart ul {
+    list-style-type: none;
+    padding-left: 24px;
+    padding-top: 24px;
+}
+
+div.cart ul li {
+    height: 110px;
+}
+
+img {
+    width: 55px;
+    height: 55px;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+div.info {
+    position: relative;
+    top: -65px;
+    left: 86px;
+    font-size: 0.9em;
+}
+
+div.name {
+    margin-top: 4px;
+}
+
+div.price {
+    margin-top: 10px;
+    font-family: verdana;
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+
+div.utility {
+    position: relative;
+    top: -107px;
+    left: 223px;
+}
+
+div.utility button {
+    font-size: 0.85em;
+}

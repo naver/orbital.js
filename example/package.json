@@ -1,0 +1,38 @@
+{
+  "name": "website-with-pluggable-components",
+  "version": "0.1.0",
+  "description": "A website example with pluggable components",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:naver/orbital.js.git",
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "dependencies": {
+    "examples.shop.account": "file:src/plugins/examples.shop.account",
+    "examples.shop.cart": "file:src/plugins/examples.shop.cart",
+    "examples.shop.layout": "file:src/plugins/examples.shop.layout",
+    "examples.shop.products": "file:src/plugins/examples.shop.products",
+    "examples.shop.resources": "file:src/plugins/examples.shop.resources",
+    "examples.shop.settings": "file:src/plugins/examples.shop.settings",
+    "examples.shop.support": "file:src/plugins/examples.shop.support",
+    "orbital.js": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.29.0",
+    "orbital-loader": "^0.1.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.11.3"
+  }
+}

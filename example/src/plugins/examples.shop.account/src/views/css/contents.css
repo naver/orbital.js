@@ -1,0 +1,25 @@
+div.login {
+    padding: 10px 35px;
+    max-width: 700px;
+    line-height: 1.6em;
+    font-size: 0.9em;
+}
+
+div.login > h1 {
+    font-size: 1.4em;
+}
+
+div.login form {
+    font-size: 0.9em;
+}
+
+div.login form input {
+    border: 1px solid #ccc;
+    width: 80px;
+    margin-right: 5px;
+    padding: 2px 5px;
+}
+
+div.login form input[type=submit] {
+    width: 50px;
+}

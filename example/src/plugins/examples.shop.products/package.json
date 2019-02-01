@@ -1,0 +1,47 @@
+{
+  "name": "examples.shop.products",
+  "version": "0.1.0",
+  "description": "Products package for shop app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "examples.shop.layout": "file:../examples.shop.layout",
+    "examples.shop.resources": "file:../examples.shop.resources",
+    "jquery": "^3.3.1"
+  },
+  "orbital": {
+    "activator": "./src/Activator.js",
+    "contributable": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "examples.shop.products:desc",
+          "desc": "You can contribute ui(s) to the product description area.",
+          "spec": {
+            "getView": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "examples.shop.layout:contents",
+          "realize": "./src/extensions/contents.js"
+        },
+        {
+          "id": "examples.shop.layout:aside",
+          "realize": "./src/extensions/aside.js",
+          "priority": 100
+        }
+      ]
+    }
+  }
+}

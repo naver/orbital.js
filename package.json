@@ -1,0 +1,50 @@
+{
+  "name": "orbital.js",
+  "version": "0.1.0",
+  "description": "Plugin System for Webpack",
+  "main": "dist/orbital.js",
+  "scripts": {
+    "build": "npm run build:webpack",
+    "build:webpack": "rollup -c rollup/config.webpack.js",
+    "build:cjs": "rollup -c rollup/config.cjs.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "contributors": [],
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "rollup": "^0.66.0",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-uglify": "^6.0.0",
+    "uglify-js": "^3.4.9"
+  },
+  "dependencies": {
+    "es6-shim": "^0.35.3",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.1",
+    "lodash.orderby": "^4.6.0",
+    "read-package-tree": "^5.2.1"
+  },
+  "orbital": {
+    "activator": "./src/plugin/SystemActivator.js",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": []
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
+}

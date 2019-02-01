@@ -1,0 +1,16 @@
+:global(span#cart) {
+    margin-right: 10px;
+}
+
+:global(span#cart) span.badge {
+    position: relative;
+    top: -8px;
+    font-size: 0.9em;
+    border-radius: 12px;
+    background-color: white;
+    color: #87bec7;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    text-align: center;
+}

@@ -1,0 +1,18 @@
+ul.items {
+    font-size: 0.8em;
+    list-style-type: none;
+    padding-left: 22px;
+}
+
+ul.items li span.icon {
+    font-size: 1em;
+}
+
+ul.items li a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul.items li a:hover {
+    text-decoration: underline;
+}

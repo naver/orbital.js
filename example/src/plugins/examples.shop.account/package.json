@@ -1,0 +1,34 @@
+{
+  "name": "examples.shop.account",
+  "version": "0.1.0",
+  "description": "Account package for shop app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "examples.shop.resources": "file:../examples.shop.resources",
+    "examples.shop.layout": "file:../examples.shop.layout"
+  },
+  "orbital": {
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [{
+        "id": "examples.shop.layout:header",
+        "realize": "./src/extensions/header.js",
+        "priority": 100
+      }, {
+        "id": "examples.shop.layout:contents",
+        "realize": "./src/extensions/contents.js"
+      }]
+    }
+  }
+}
