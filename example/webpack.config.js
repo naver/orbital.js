@@ -4,12 +4,12 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const extractTextPlugin = new ExtractTextPlugin({
-    filename: '[name].css',
-    allChunks: true
+const extractTextPlugin = new MiniCssExtractPlugin({
+    filename: 'css/[name].css',
+    chunkFilename: 'css/[name].css'
 });
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: 'src/app/main.html',
@@ -19,17 +19,16 @@ const hmrPlugin = new webpack.HotModuleReplacementPlugin();
 
 const cssLoader = {
     test: /\.css$/,
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [{
+    use: [
+        MiniCssExtractPlugin.loader,
+        {
             loader: 'css-loader',
             options: {
-                importLoaders: 1,
                 modules: true,
                 sourceMap: true
             }
-        }]
-    })
+        }
+    ]
 };
 
 const orbitalLoader = {
@@ -45,6 +44,7 @@ const babelLoader = {
 const config = {
     bail: true,
     entry: './src/app/main.js',
+    mode: 'development',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: '[name].js',
