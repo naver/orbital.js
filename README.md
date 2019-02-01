@@ -19,17 +19,17 @@ $ npm run dev
 ```
 http://127.0.0.1:3030 will show a screen like below.
 
-![image](https://media.oss.navercorp.com/user/3364/files/5de2d57e-85f2-11e7-8b8f-660f95435b48)
+![image](https://user-images.githubusercontent.com/7447396/52113741-8e1b4580-264d-11e9-8db9-bacf2a98090a.png)
 
-![image](https://media.oss.navercorp.com/user/3364/files/7797669c-85f2-11e7-8d12-6195ec14affb)
+![image](https://user-images.githubusercontent.com/7447396/52113751-92476300-264d-11e9-81ad-24261d2c2cb0.png)
 
 The example has the following directory structure.
 
-![image](https://media.oss.navercorp.com/user/3364/files/e42633fa-8463-11e7-84e7-20730ba99e86)
+![image](https://user-images.githubusercontent.com/7447396/52113757-970c1700-264d-11e9-93ab-ec947d5d893b.png)
 
-And has architecture stack like this.
+And has a architecture stack like this.
 
-![image](https://media.oss.navercorp.com/user/3364/files/fbf41fae-869f-11e7-96c9-77bd54fb5912)
+![image](https://user-images.githubusercontent.com/7447396/52113770-9b383480-264d-11e9-8903-68832ca1597b.png)
 
 ## package.json
 
