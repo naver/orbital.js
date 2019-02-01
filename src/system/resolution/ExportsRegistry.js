@@ -5,21 +5,16 @@
  * Licensed under the MIT
  */
 
-import InstallError from '../exceptions/InstallError';
-
 const reg = new Map();
 
 const ExportsRegistry = {
 
-    register (name, version, exports) {
+    register(name, version, exports) {
         if (!reg.has(name)) {
             reg.set(name, {});
         }
         const regsByName = reg.get(name);
-        if (regsByName[version]) {
-            throw new Error(
-                    `${InstallError.ALEXIST} (${name}@${version})`);
-        } else {
+        if (!regsByName[version]) {
             regsByName[version] = exports;
         }
     },
