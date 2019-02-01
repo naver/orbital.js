@@ -29,7 +29,7 @@ const ACTION = {
 
 const ICON = {
     Enable: '&#9658;',
-    Disable: '&#10073;&#10073;'
+    Disable: '&#9646;'
 };
 
 function addListener(fragment, context) {
