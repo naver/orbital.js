@@ -11,7 +11,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "orbital.js": "file:../../../../"
+    "orbital.js": "^0.1.1"
   },
   "orbital": {
     "activator": "./src/Activator.js",
