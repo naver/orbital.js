@@ -1,6 +1,6 @@
 # Orbital.js
 
-> Plugin System for Webpack
+> A plugin system for webpack
 
 ## Install
 
@@ -11,12 +11,12 @@ npm install orbital.js
 ## Example
 
 ```bash
-$ git clone https://github.com/naver/orbital.git
-$ cd ./orbital.js
+$ git clone git@github.com:naver/orbital.js.git
+$ cd ./orbital.js/example
 $ npm install
-$ cd ./example
 $ npm run dev
 ```
+
 http://127.0.0.1:3030 will show a screen like below.
 
 ![image](https://user-images.githubusercontent.com/7447396/52113741-8e1b4580-264d-11e9-8db9-bacf2a98090a.png)
@@ -241,7 +241,7 @@ Using contributes field, plugins can contribute to the contributable services an
       "description": "Products package for shop app",
       "dependencies": {
         "examples.shop.layout": "file:../examples.shop.layout",
-        "orbital.js": "file:../../../"
+        "orbital.js": "^0.1.1"
       },
       "orbital": {
         "activator": "./src/Activator.js",
@@ -322,8 +322,8 @@ Extensions are sorted with higher priority value. Default priority is 0.
     "version": "0.1.0",
     "description": "Products package for shop app",
     "dependencies": {
-    "examples.shop.layout": "file:../examples.shop.layout",
-    "orbital.js": "file:../../../"
+        "examples.shop.layout": "file:../examples.shop.layout",
+        "orbital.js": "^0.1.1"
     },
     "orbital": {
     "activator": "./src/Activator.js",
@@ -350,8 +350,8 @@ Extensions are sorted with higher priority value. Default priority is 0.
     "version": "0.1.0",
     "description": "Cart package for shop app",
     "dependencies": {
-    "examples.shop.layout": "file:../examples.shop.layout",
-    "orbital.js": "file:../../../"
+        "examples.shop.layout": "file:../examples.shop.layout",
+        "orbital.js": "^0.1.1"
     },
     "orbital": {
     "contributable": {
