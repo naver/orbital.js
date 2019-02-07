@@ -35,7 +35,7 @@ And has a architecture stack like this.
 
 ### Basic Sample
 
-```js
+```json
 {
     "name": "your-package-name",
     "version": "0.1.0",
@@ -139,39 +139,43 @@ Receives contributions from other plugins. contributable is a kind of interface.
 
     ```json
     {
-      "name": "examples.shop.layout",
-      "version": "0.1.0",
-      "description": "This package provides a layout for shop app",
-      "orbital": {
-        "activator": "./src/Activator.js",
-        "contributable": {
-          "services": [],
-          "extensions": [{
-            "id": "examples.shop.layout:contents",
-            "desc": "You can contribute ui(s) to the contents area.",
-            "spec": {
-              "path": "string",
-              "getElement": "function"
+        "name": "examples.shop.layout",
+        "version": "0.1.0",
+        "description": "This package provides a layout for shop app",
+        "orbital": {
+            "activator": "./src/Activator.js",
+            "contributable": {
+                "services": [],
+                "extensions": [
+                    {
+                        "id": "examples.shop.layout:contents",
+                        "desc": "You can contribute ui(s) to the contents area.",
+                        "spec": {
+                            "path": "string",
+                            "getElement": "function"
+                        }
+                    },
+                    {
+                        "id": "examples.shop.layout:aside",
+                        "desc": "You can contribute ui(s) to the aside area.",
+                        "spec": {
+                            "getView": "function"
+                        }
+                    },
+                    {
+                        "id": "examples.shop.layout:header",
+                        "desc": "You can contribute ui(s) to the header area.",
+                        "spec": {
+                            "getView": "function"
+                        }
+                    }
+                ]
+            },
+            "contributes": {
+                "services": [],
+                "extensions": []
             }
-          }, {
-            "id": "examples.shop.layout:aside",
-            "desc": "You can contribute ui(s) to the aside area.",
-            "spec": {
-              "getView": "function"
-            }
-          }, {
-            "id": "examples.shop.layout:header",
-            "desc": "You can contribute ui(s) to the header area.",
-            "spec": {
-              "getView": "function"
-            }
-          }]
-        },
-        "contributes": {
-          "services": [],
-          "extensions": []
         }
-      }
     }
 
     ```
@@ -189,38 +193,42 @@ Receives contributions from other plugins. contributable is a kind of interface.
 
     ```json
     {
-      "name": "examples.shop.resources",
-      "version": "0.1.0",
-      "description": "This package serves resources(Rest API, Images) for shop app",
-      "dependencies": {
-      },
-      "orbital": {
-        "contributable": {
-          "services": [{
-            "id": "examples.shop.resources:api",
-            "desc": "This spec provides rest api for shop",
-            "spec": {
-              "deleteFromCart": "function",
-              "getAccount": "function",
-              "getCart": "function",
-              "getProductById": "function",
-              "getProductCategories": "function",
-              "getProducts": "function",
-              "postToCart": "function",
-              "postLogin": "function",
-              "postLogout": "function"
-            }
-          }],
-          "extensions": []
+        "name": "examples.shop.resources",
+        "version": "0.1.0",
+        "description": "This package serves resources(Rest API, Images) for shop app",
+        "dependencies": {
         },
-        "contributes": {
-          "services": [{
-            "id": "examples.shop.resources:api",
-            "realize": "./src/services/RestApi.js"
-          }],
-          "extensions": []
+        "orbital": {
+            "contributable": {
+                "services": [
+                    {
+                        "id": "examples.shop.resources:api",
+                        "desc": "This spec provides rest api for shop",
+                        "spec": {
+                            "deleteFromCart": "function",
+                            "getAccount": "function",
+                            "getCart": "function",
+                            "getProductById": "function",
+                            "getProductCategories": "function",
+                            "getProducts": "function",
+                            "postToCart": "function",
+                            "postLogin": "function",
+                            "postLogout": "function"
+                        }
+                    }
+                ],
+                "extensions": []
+            },
+            "contributes": {
+                "services": [
+                    {
+                        "id": "examples.shop.resources:api",
+                        "realize": "./src/services/RestApi.js"
+                    }
+                ],
+                "extensions": []
+            }
         }
-      }
     }
 
     ```
@@ -236,31 +244,34 @@ Using contributes field, plugins can contribute to the contributable services an
 
     ```json
     {
-      "name": "examples.shop.products",
-      "version": "0.1.0",
-      "description": "Products package for shop app",
-      "dependencies": {
-        "examples.shop.layout": "file:../examples.shop.layout",
-        "orbital.js": "^0.1.1"
-      },
-      "orbital": {
-        "activator": "./src/Activator.js",
-        "contributable": {
-          "services": [],
-          "extensions": []
+        "name": "examples.shop.products",
+        "version": "0.1.0",
+        "description": "Products package for shop app",
+        "dependencies": {
+            "examples.shop.layout": "file:../examples.shop.layout",
+            "orbital.js": "^0.1.2"
         },
-        "contributes": {
-          "services": [],
-          "extensions": [{
-            "id": "examples.shop.layout:contents",
-            "realize": "./src/extensions/contents.js"
-          }, {
-            "id": "examples.shop.layout:aside",
-            "realize": "./src/extensions/aside.js",
-            "priority": 100
-          }]
+        "orbital": {
+            "activator": "./src/Activator.js",
+            "contributable": {
+                "services": [],
+                "extensions": []
+            },
+            "contributes": {
+                "services": [],
+                "extensions": [
+                    {
+                        "id": "examples.shop.layout:contents",
+                        "realize": "./src/extensions/contents.js"
+                    },
+                    {
+                        "id": "examples.shop.layout:aside",
+                        "realize": "./src/extensions/aside.js",
+                        "priority": 100
+                    }
+                ]
+            }
         }
-      }
     }
 
     ```
@@ -272,38 +283,42 @@ Using contributes field, plugins can contribute to the contributable services an
 
     ```json
     {
-      "name": "examples.shop.resources",
-      "version": "0.1.0",
-      "description": "This package serves resources(Rest API, Images) for shop app",
-      "dependencies": {
-      },
-      "orbital": {
-        "contributable": {
-          "services": [{
-            "id": "examples.shop.resources:api",
-            "desc": "This spec provides rest api for shop",
-            "spec": {
-              "deleteFromCart": "function",
-              "getAccount": "function",
-              "getCart": "function",
-              "getProductById": "function",
-              "getProductCategories": "function",
-              "getProducts": "function",
-              "postToCart": "function",
-              "postLogin": "function",
-              "postLogout": "function"
-            }
-          }],
-          "extensions": []
+        "name": "examples.shop.resources",
+        "version": "0.1.0",
+        "description": "This package serves resources(Rest API, Images) for shop app",
+        "dependencies": {
         },
-        "contributes": {
-          "services": [{
-            "id": "examples.shop.resources:api",
-            "realize": "./src/services/RestApi.js"
-          }],
-          "extensions": []
+        "orbital": {
+            "contributable": {
+                "services": [
+                    {
+                        "id": "examples.shop.resources:api",
+                        "desc": "This spec provides rest api for shop",
+                        "spec": {
+                            "deleteFromCart": "function",
+                            "getAccount": "function",
+                            "getCart": "function",
+                            "getProductById": "function",
+                            "getProductCategories": "function",
+                            "getProducts": "function",
+                            "postToCart": "function",
+                            "postLogin": "function",
+                            "postLogout": "function"
+                        }
+                    }
+                ],
+                "extensions": []
+            },
+            "contributes": {
+                "services": [
+                    {
+                        "id": "examples.shop.resources:api",
+                        "realize": "./src/services/RestApi.js"
+                    }
+                ],
+                "extensions": []
+            }
         }
-      }
     }
 
     ```
@@ -323,49 +338,51 @@ Extensions are sorted with higher priority value. Default priority is 0.
     "description": "Products package for shop app",
     "dependencies": {
         "examples.shop.layout": "file:../examples.shop.layout",
-        "orbital.js": "^0.1.1"
+        "orbital.js": "^0.1.2"
     },
     "orbital": {
-    "activator": "./src/Activator.js",
-    "contributable": {
-        "services": [],
-        "extensions": []
-    },
-    "contributes": {
-        "services": [],
-        "extensions": [{
-        "id": "examples.shop.layout:header",
-        "realize": "./src/extensions/header.js",
-        "priority": 100
-        }]
-    }
+        "activator": "./src/Activator.js",
+        "contributable": {
+            "services": [],
+            "extensions": []
+        },
+        "contributes": {
+            "services": [],
+            "extensions": [{
+                "id": "examples.shop.layout:header",
+                "realize": "./src/extensions/header.js",
+                "priority": 100
+            }]
+        }
     }
 }
 
 ```
 
-```js
+```json
 {
     "name": "examples.shop.cart",
     "version": "0.1.0",
     "description": "Cart package for shop app",
     "dependencies": {
         "examples.shop.layout": "file:../examples.shop.layout",
-        "orbital.js": "^0.1.1"
+        "orbital.js": "^0.1.2"
     },
     "orbital": {
-    "contributable": {
-        "services": [],
-        "extensions": []
-    },
-    "contributes": {
-        "services": [],
-        "extensions": [{
-        "id": "examples.shop.layout:header",
-        "realize": "./src/extensions/header.js",
-        "priority": 200
-        }]
-    }
+        "contributable": {
+            "services": [],
+            "extensions": []
+        },
+        "contributes": {
+            "services": [],
+            "extensions": [
+                {
+                    "id": "examples.shop.layout:header",
+                    "realize": "./src/extensions/header.js",
+                    "priority": 200
+                }
+            ]
+        }
     }
 }
 

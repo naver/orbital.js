@@ -1,6 +1,6 @@
 {
   "name": "orbital.js",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Plugin System for Webpack",
   "main": "dist/orbital.js",
   "scripts": {
