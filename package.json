@@ -1,13 +1,16 @@
 {
   "name": "orbital.js",
-  "version": "0.1.4",
-  "description": "Plugin System for Webpack",
-  "main": "dist/orbital.js",
+  "version": "0.1.0",
+  "description": "Dynamic node package management system (inspired by OSGi)",
+  "bin": {
+    "orbital": "./bin/orbital"
+  },
+  "engines": {
+    "npm": "^5.5.0"
+  },
   "scripts": {
-    "build": "npm run build:webpack",
-    "build:webpack": "rollup -c rollup/config.webpack.js",
-    "build:cjs": "rollup -c rollup/config.cjs.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect --debug-brk bin/orbital",
+    "start": "node bin/orbital"
   },
   "license": "MIT",
   "author": "Shim Heungwoon <hw.shim@navercorp.com>",
@@ -16,33 +19,23 @@
   ],
   "contributors": [],
   "devDependencies": {
-    "eslint": "^5.6.0",
-    "rollup": "^0.66.0",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-uglify": "^6.0.0",
-    "uglify-js": "^3.4.9"
+    "eslint": "^4.7.0",
+    "eslint-plugin-import": "^2.7.0"
   },
   "dependencies": {
-    "es6-shim": "^0.35.3",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.merge": "^4.6.1",
-    "lodash.orderby": "^4.6.0",
-    "read-package-tree": "^5.2.1"
-  },
-  "orbital": {
-    "contributable": {
-      "services": [],
-      "extensions": []
-    },
-    "contributes": {
-      "services": [],
-      "extensions": []
-    }
+    "orbital.cli": "file:src/plugins/orbital.cli",
+    "orbital.cli.command.basic": "file:src/plugins/orbital.cli.command.basic",
+    "orbital.cli.command.bundle": "file:src/plugins/orbital.cli.command.bundle",
+    "orbital.cli.command.graph": "file:src/plugins/orbital.cli.command.graph",
+    "orbital.cli.command.web": "file:src/plugins/orbital.cli.command.web",
+    "orbital.cli.command.web.loader.css": "file:src/plugins/orbital.cli.command.web.loader.css",
+    "orbital.cli.command.web.loader.json": "file:src/plugins/orbital.cli.command.web.loader.json",
+    "orbital.cli.command.web.loader.text": "file:src/plugins/orbital.cli.command.web.loader.text",
+    "orbital.cli.shell": "file:src/plugins/orbital.cli.shell",
+    "orbital.core": "file:src/plugins/orbital.core"
   },
   "files": [
-    "dist",
+    "bin/orbital",
     "LICENSE",
     "README.md"
   ]

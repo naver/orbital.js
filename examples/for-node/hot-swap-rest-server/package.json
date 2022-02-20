@@ -1,0 +1,22 @@
+{
+  "name": "example-hot-swap-rest-server",
+  "version": "0.1.0",
+  "description": "A Simple Rest Server Example Supporting Hot-Swapping using Orbital",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/app/main.js",
+    "dev": "orbital -c -i -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "dependencies": {
+    "examples.rest": "file:src/plugins/examples.rest",
+    "examples.rest.products": "file:src/plugins/examples.rest.products",
+    "examples.rest.users": "file:src/plugins/examples.rest.users",
+    "orbital.js": "file:../../../",
+    "server-destroy": "^1.0.1"
+  },
+  "devDependencies": {}
+}

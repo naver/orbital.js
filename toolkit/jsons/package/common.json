@@ -1,0 +1,113 @@
+{
+  "name": "orbital.js",
+  "version": "0.1.0",
+  "description": "Dynamic node package management system (inspired by OSGi)",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "main": "dist/orbital.js",
+  "bin": {
+    "orbital": "./bin/orbital"
+  },
+  "engines": {
+    "npm": "^5.5.0"
+  },
+  "scripts": {},
+  "license": "MIT",
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "contributors": [],
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "eslint": "^4.7.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.5.3",
+    "rollup": "^0.50.0",
+    "rollup-plugin-buble": "^0.16.0",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.1.1"
+  },
+  "dependencies": {
+    "es6-shim": "^0.35.3",
+    "lodash.merge": "^4.6.0",
+    "lodash.orderby": "^4.6.0"
+  },
+  "files": [
+    "dist",
+    "bin/orbital",
+    "scripts",
+    "README.md"
+  ],
+  "orbital": {
+    "target": [
+      "node",
+      "web"
+    ],
+    "bundle": {
+      "bundler": "rollup",
+      "format": "umd",
+      "path": "./dist"
+    },
+    "contributable": {
+      "services": [
+        {
+          "id": "orbital.core:package-manager",
+          "desc": "Orbital Package Manager service",
+          "spec": {
+            "init": "function",
+            "install": "function",
+            "update": "function",
+            "uninstall": "function",
+            "on": "function",
+            "off": "function",
+            "list": "function",
+            "graph": "function"
+          }
+        },
+        {
+          "id": "orbital.core:logger",
+          "desc": "Logger service",
+          "spec": {
+            "error": "function",
+            "warn": "function",
+            "info": "function",
+            "update": "function",
+            "log": "function",
+            "emphasize": "function",
+            "debug": "function",
+            "silly": "function",
+            "setLevel": "function",
+            "getLevel": "function",
+            "release": "function",
+            "nl": "function",
+            "setPrompt": "function"
+          }
+        },
+        {
+          "id": "orbital.core:project",
+          "desc": "Provides project information",
+          "spec": {
+            "getConfig": "function",
+            "getRealPath": "function",
+            "getWebAppPath": "function",
+            "readConfig": "function"
+          }
+        }
+      ],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": []
+    }
+  }
+}

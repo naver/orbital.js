@@ -1,0 +1,35 @@
+{
+  "name": "orbital.i18n.detector.web",
+  "version": "0.1.0",
+  "description": "Language detector for web browser",
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "js-cookie": "^2.2.0",
+    "orbital.i18n": "file:../orbital.i18n"
+  },
+  "orbital": {
+    "target": "web",
+    "bundle": true,
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [
+        {
+          "id": "orbital.i18n:detector",
+          "realize": "./src/services/WebDetector.js"
+        }
+      ],
+      "extensions": []
+    }
+  }
+}

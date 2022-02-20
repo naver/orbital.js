@@ -1,0 +1,19 @@
+{
+  "cache": ".docache/docs.json",
+  "disableOutputCheck": true,
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "ignoreCompilerErrors": true,
+  "includeDeclarations": true,
+  "json": "docs/docs.json",
+  "mode": "modules",
+  "module": "es2015",
+  "name": "orbital.core",
+  "out": "docs",
+  "readme": "none",
+  "src": "src",
+  "target": "ES6",
+  "theme": "minimal",
+  "tsconfig": "config/tsconfig.json",
+  "verbose": false
+}

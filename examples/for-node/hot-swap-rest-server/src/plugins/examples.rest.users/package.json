@@ -1,0 +1,33 @@
+{
+  "name": "examples.rest.users",
+  "version": "0.1.0",
+  "description": "users",
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "examples.rest": "file:../examples.rest",
+    "orbital.js": "file:../../../../../../"
+  },
+  "orbital": {
+    "target": "node",
+    "bundle": true,
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [{
+        "id": "examples.rest:route",
+        "realize": "./src/extensions/route.js"
+      }]
+    }
+  }
+}

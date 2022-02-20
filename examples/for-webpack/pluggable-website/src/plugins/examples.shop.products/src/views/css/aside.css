@@ -1,0 +1,13 @@
+ul.items {
+    font-size: 0.8em;
+    list-style-type: disc;
+}
+
+ul.items li a {
+    text-decoration: none;
+    color: #0592AB;
+}
+
+ul.items li a:hover {
+    text-decoration: underline;
+}

@@ -1,7 +1,0 @@
-test/*
-**/dist/*
-**/tmp/*
-**/node_modules/*
-**/require.js
-runtime/modules/orbital-loader/*
-!test/test.js

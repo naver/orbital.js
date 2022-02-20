@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+
+button, input {
+    outline: none;
+}
+
+button, input[type=submit] {
+    border: 1px outset #ddd;
+    background-color: #eee;
+    padding: 3px 5px;
+}
+
+button:active, input[type=submit]:active {
+    border: 1px inset #ddd;
+}
+
+div.page > header {
+    color: #fff;
+    background-color: #92C8D1;
+    font-size: 1.3em;
+    padding: 30px;
+}
+
+div.page > header a {
+    text-decoration: none;
+    color: white;
+}
+
+div.page > header .desc {
+    font-size: 0.6em;
+    font-family: tahoma;
+}
+
+div.page > header :global(div.utility) {
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    font-size: 0.6em;
+}
+
+div.page > aside {
+    position: absolute;
+    bottom: 0;
+    top: 99px;
+    padding-top: 20px;
+    background-color: #EAEAEA;
+    line-height: 240%;
+    min-width: 200px;
+    float: left;
+}
+
+div.page > main {
+    position: absolute;
+    left: 200px;
+    float: left;
+    padding: 20px;
+}

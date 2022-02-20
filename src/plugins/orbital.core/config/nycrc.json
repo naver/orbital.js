@@ -1,0 +1,24 @@
+{
+  "check-coverage": true,
+  "per-file": true,
+  "lines": 99,
+  "statements": 99,
+  "functions": 99,
+  "branches": 50,
+  "include": [
+    "src/**/*.ts"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "exclude": [
+    "spec/**/*.spec.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text",
+    "html"
+  ],
+  "all": true,
+  "temp-directory": "./coverage/.nyc_output"
+}

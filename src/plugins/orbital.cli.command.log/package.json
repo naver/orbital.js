@@ -1,0 +1,34 @@
+{
+  "name": "orbital.cli.command.log",
+  "version": "0.1.0",
+  "description": "Sets logging levels",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "archy": "^1.0.0",
+    "orbital.cli": "file:../orbital.cli",
+    "orbital.core": "file:../orbital.core",
+    "orbital.core.common": "file:../orbital.core/src/modules/orbital.core.common"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli:command",
+          "realize": "./src/extensions/command/log.js"
+        }
+      ]
+    }
+  }
+}

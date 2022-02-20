@@ -1,0 +1,43 @@
+{
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "contributors": [],
+  "dependencies": {},
+  "description": "TypeScript definitions for orbital.core",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.3",
+    "rollup": "^0.56.2",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-typescript2": "^0.11.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  },
+  "keywords": [
+    "orbital.js"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "name": "orbital.core.types",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "scripts": {
+    "build": "npm run build:main && npm run build:module",
+    "build:main": "cross-env BUILD=production rollup -c config/rollup.config.main.js",
+    "build:module": "cross-env BUILD=production rollup -c config/rollup.config.module.js",
+    "dev": "concurrently --raw \"npm run dev:main\" \"npm run dev:module\"",
+    "dev:main": "rollup -c config/rollup.config.main.js -w",
+    "dev:module": "rollup -c config/rollup.config.module.js -w",
+    "test": "echo \"no test specified yet\""
+  },
+  "types": "dist/index.d.ts",
+  "typeScriptVersion": "2.7",
+  "version": "0.1.0"
+}

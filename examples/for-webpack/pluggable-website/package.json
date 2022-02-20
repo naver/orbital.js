@@ -1,0 +1,28 @@
+{
+  "name": "website-with-pluggable-components",
+  "version": "0.1.0",
+  "description": "A website example with pluggable components",
+  "license": "MIT",
+  "scripts": {
+    "build": "orbital -s",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:naver/orbital.js.git",
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "dependencies": {
+    "examples.shop.account": "file:src/plugins/examples.shop.account",
+    "examples.shop.banner": "file:src/plugins/examples.shop.banner",
+    "examples.shop.cart": "file:src/plugins/examples.shop.cart",
+    "examples.shop.layout": "file:src/plugins/examples.shop.layout",
+    "examples.shop.products": "file:src/plugins/examples.shop.products",
+    "examples.shop.resources": "file:src/plugins/examples.shop.resources",
+    "examples.shop.settings": "file:src/plugins/examples.shop.settings",
+    "orbital.i18n": "file:../../../src/optional/orbital.i18n",
+    "orbital.i18n.detector.web": "file:../../../src/optional/orbital.i18n.detector.web",
+    "orbital.i18n.process.post.korean": "file:../../../src/optional/orbital.i18n.process.post.korean",
+    "orbital.js": "file:../../../"
+  },
+  "devDependencies": {}
+}

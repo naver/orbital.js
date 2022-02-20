@@ -1,0 +1,36 @@
+{
+  "name": "examples.rest",
+  "version": "0.1.0",
+  "description": "rest server main package",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "restify": "^4.3.0"
+  },
+  "orbital": {
+    "target": "node",
+    "activator": "./src/Activator.js",
+    "contributable": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "examples.rest:route",
+          "desc": "Extensions can contribute a routing path and it's controller",
+          "spec": {
+            "path": "string",
+            "controller": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [],
+      "extensions": []
+    }
+  }
+}

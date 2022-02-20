@@ -1,0 +1,33 @@
+{
+  "name": "orbital.cli.command.graph",
+  "version": "0.1.0",
+  "description": "Shows an orbital package graph",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "archy": "^1.0.0",
+    "orbital.cli": "file:../orbital.cli",
+    "orbital.core": "file:../orbital.core"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli:command",
+          "realize": "./src/extensions/command/graph.js"
+        }
+      ]
+    }
+  }
+}

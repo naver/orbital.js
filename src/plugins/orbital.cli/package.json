@@ -1,0 +1,64 @@
+{
+  "name": "orbital.cli",
+  "version": "0.1.0",
+  "description": "orbital command line user interface",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "orbital.core": "file:../orbital.core",
+    "orbital.core.types": "file:../orbital.core/src/modules/orbital.core.types"
+  },
+  "orbital": {
+    "state": "stopped",
+    "target": "node",
+    "activator": "./src/Activator.js",
+    "contributable": {
+      "services": [
+        {
+          "id": "orbital.cli:arguments",
+          "desc": "Inquiring cli arguments",
+          "spec": {
+            "getArguments": "function",
+            "getArgValue": "function",
+            "hasCommand": "function"
+          }
+        }
+      ],
+      "extensions": [
+        {
+          "id": "orbital.cli:command",
+          "desc": "Using this extension point, you can add new cli command.",
+          "spec": {
+            "command": "string",
+            "alias": "string",
+            "default": "function",
+            "desc": "string",
+            "execute": "function"
+          }
+        },
+        {
+          "id": "orbital.cli:shell",
+          "desc": "Using this extension point, you can add new cli shell mode.",
+          "spec": {
+            "execute": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [
+        {
+          "id": "orbital.cli:arguments",
+          "realize": "./src/services/CliArgs.js"
+        }
+      ],
+      "extensions": []
+    }
+  }
+}

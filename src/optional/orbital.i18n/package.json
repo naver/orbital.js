@@ -1,0 +1,86 @@
+{
+  "name": "orbital.i18n",
+  "version": "0.1.0",
+  "description": "Basic i18n support for orbital packages",
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "orbital.core": "file:../../plugins/orbital.core"
+  },
+  "devDependencies": {
+  },
+  "orbital": {
+    "target": [
+      "node",
+      "web"
+    ],
+    "bundle": {
+      "bundler": "rollup",
+      "path": "./dist",
+      "format": "umd"
+    },
+    "contributable": {
+      "services": [
+        {
+          "id": "orbital.i18n:manager",
+          "desc": "A service interface for i18n agents.",
+          "spec": {
+            "createAgent": {
+              "type": "function",
+              "desc": "Creates a new i18n agent instance for the given pluginId."
+            },
+            "getLanguagePacks": "function",
+            "getLocale": "function",
+            "off": "function",
+            "on": "function",
+            "setLocale": "function"
+          }
+        },
+        {
+          "id": "orbital.i18n:detector",
+          "desc": "Extensions can contribute how to detect a language to use.",
+          "spec": {
+            "detect": "function"
+          },
+          "tolerant": true
+        }
+      ],
+      "extensions": [
+        {
+          "id": "orbital.i18n:languages",
+          "desc": "Extensions can contribute i18n language set.",
+          "spec": {
+            "locale": {
+              "type": "string",
+              "meta": true
+            }
+          },
+          "type": "json"
+        },
+        {
+          "id": "orbital.i18n:post-process",
+          "desc": "Extensions can contribute i18n language set.",
+          "spec": {
+            "process": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [
+        {
+          "id": "orbital.i18n:manager",
+          "realize": "./src/services/I18nManager.js"
+        }
+      ],
+      "extensions": []
+    }
+  }
+}

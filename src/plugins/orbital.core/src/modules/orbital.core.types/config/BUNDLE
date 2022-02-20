@@ -1,0 +1,12 @@
+The MIT License (MIT)
+See LICENSE file for the actual license texts.
+
+Copyright (c) 2017-present, NAVER Corp.
+
+Bundle of <%= pkg.name %>
+Generated: <%= moment().format('YYYY-MM-DD') %>
+Version: <%= pkg.version %>
+Dependencies:
+<% _.forEach(dependencies, function (dependency) { %>
+  <%= dependency.name %> -- <%= dependency.version %>
+<% }) %>
