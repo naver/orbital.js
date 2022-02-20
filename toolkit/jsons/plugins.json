@@ -1,0 +1,12 @@
+[
+    "orbital.cli",
+    "orbital.cli.command",
+    "orbital.cli.command.bundle",
+    "orbital.cli.command.graph",
+    "orbital.cli.command.log",
+    "orbital.cli.command.web",
+    "orbital.cli.command.web.loader.css",
+    "orbital.cli.command.web.loader.json",
+    "orbital.cli.command.web.loader.text",
+    "orbital.cli.shell"
+]

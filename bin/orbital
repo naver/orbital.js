@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+'use strict';
+
+require('orbital.core')(() => {}, {
+    log: {
+        level: 2
+    },
+    packages: {
+        startup: [
+            'orbital.cli*'
+        ]
+    },
+    permission: {
+        'orbital.core:package-manager': {
+            call: {
+                allow: [
+                    'orbital.cli.shell',
+                    'orbital.cli.command.graph',
+                    'orbital.cli.command.web',
+                ]
+            }
+        }
+    }
+});

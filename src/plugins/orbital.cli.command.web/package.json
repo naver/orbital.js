@@ -1,0 +1,50 @@
+{
+  "name": "orbital.cli.command.web",
+  "version": "0.1.0",
+  "description": "Generate resource files for a web project from packages with 'web' target.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "fs-extra": "^4.0.2",
+    "js-beautify": "^1.7.4",
+    "jsdom": "^11.3.0",
+    "orbital.cli": "file:../orbital.cli",
+    "orbital.core": "file:../orbital.core",
+    "orbital.core.common": "file:../orbital.core/src/modules/orbital.core.common",
+    "orbital.core.node": "file:../orbital.core/src/modules/orbital.core.node",
+    "require-css": "github:hwshim/require-css",
+    "require-json": "github:hwshim/require-json",
+    "requirejs": "github:hwshim/requirejs"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli.command.web:amd-loader",
+          "desc": "This extension point allows you to write amd loader (require.js currently) plugins. Please see http://requirejs.org/docs/plugins.html",
+          "spec": {
+            "fileTypes": "array",
+            "getSourcePath": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli:command",
+          "realize": "./src/extensions/command/static.js"
+        }
+      ]
+    }
+  }
+}

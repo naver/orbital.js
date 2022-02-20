@@ -1,0 +1,33 @@
+{
+  "name": "orbital.cli.shell",
+  "version": "0.1.0",
+  "description": "Shell for orbital cli",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "orbital.cli": "file:../orbital.cli",
+    "orbital.core": "file:../orbital.core"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli:shell",
+          "realize": "./src/extensions/shell.js"
+        }
+      ]
+    }
+  }
+}

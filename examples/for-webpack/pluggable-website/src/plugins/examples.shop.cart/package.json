@@ -1,0 +1,45 @@
+{
+  "name": "examples.shop.cart",
+  "version": "0.1.0",
+  "description": "Cart package for shop app",
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "examples.shop.layout": "file:../examples.shop.layout",
+    "examples.shop.products": "file:../examples.shop.products",
+    "examples.shop.resources": "file:../examples.shop.resources"
+  },
+  "orbital": {
+    "target": "web",
+    "bundle": true,
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [{
+        "id": "examples.shop.layout:header",
+        "realize": "./src/extensions/header.js",
+        "priority": 200
+      }, {
+        "id": "examples.shop.layout:contents",
+        "realize": "./src/extensions/contents.js",
+        "meta": {
+          "path": "cart"
+        }
+      }, {
+        "id": "examples.shop.products:desc",
+        "realize": "./src/extensions/desc.js"
+      }]
+    }
+  }
+}

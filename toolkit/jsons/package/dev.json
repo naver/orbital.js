@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "postinstall": "node scripts/install-plugins.js local",
+    "prepare": "npm run lint && npm run build:libs && npm test",
+    "lint": "node node_modules/eslint/bin/eslint.js src runtime",
+    "pretest": "npm run build && npm run build:cli",
+    "build": "rollup -c rollup/config.js",
+    "build:cli": "rollup -c rollup/config.cli.js",
+    "build:libs": "npm run build:lib.common && npm run build:lib.node && npm run build:lib.web",
+    "build:lib.common": "npm run build --prefix runtime/modules/orbital.js.common",
+    "build:lib.node": "npm run build --prefix runtime/modules/orbital.js.node",
+    "build:lib.web": "npm run build --prefix runtime/modules/orbital.js.web",
+    "test": "node node_modules/mocha/bin/mocha",
+    "dev": "concurrently --raw \"npm run dev:lib\" \"npm run dev:cli\"",
+    "dev:lib": "rollup -c rollup/config.js -w",
+    "dev:cli": "rollup -c rollup/config.cli.js -w"
+  },
+  "dependencies": {
+    "orbital.js.common": "file:runtime/modules/orbital.js.common",
+    "orbital.js.node": "file:runtime/modules/orbital.js.node",
+    "orbital.js.web": "file:runtime/modules/orbital.js.web"
+  }
+}

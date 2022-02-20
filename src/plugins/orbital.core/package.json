@@ -1,0 +1,169 @@
+{
+  "name": "orbital.core",
+  "version": "0.1.0",
+  "description": "A core plugin which manages all other orbital plugins' life-cycle.",
+  "main": "dist/orbital.core.js",
+  "module": "dist/orbital.core.module.js",
+  "engines": {
+    "npm": "^5.5.0"
+  },
+  "scripts": {
+    "build": "npm run build:amd && npm run build:main && npm run build:module",
+    "build:amd": "cross-env BUILD=production rollup -c config/rollup.config.amd.js",
+    "build:main": "cross-env BUILD=production rollup -c config/rollup.config.main.js",
+    "build:module": "cross-env BUILD=production rollup -c config/rollup.config.module.js",
+    "dev": "concurrently --raw \"npm run dev:amd\" \"npm run dev:main\" \"npm run dev:module\"",
+    "dev:amd": "rollup -c config/rollup.config.amd.js -w",
+    "dev:main": "rollup -c config/rollup.config.main.js -w",
+    "dev:module": "rollup -c config/rollup.config.module.js -w",
+    "docs:api": "node toolkit/docs/api/generate.js",
+    "docs:json": "typedoc --options config/typedoc.json --tsconfig config/tsconfig.json ./src/",
+    "lint": "tslint 'src/**/*.ts' 'spec/**/*.ts'",
+    "test": "npm run test:node && npm run test:web -- --single-run",
+    "test:dev": "cross-env TS_NODE_PROJECT=config/ts.spec.json mocha --opts config/mocha.opts -w",
+    "test:node": "cross-env TS_NODE_PROJECT=config/ts.spec.json nyc --nycrc-path config/nycrc.json mocha --opts config/mocha.opts",
+    "test:web": "karma start config/karma.conf.js"
+  },
+  "license": "MIT",
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "contributors": [],
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "electron": "^1.8.2",
+    "json-d-ts": "^1.0.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-edge-launcher": "^0.4.2",
+    "karma-electron-launcher": "^0.2.0",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-typescript": "^3.0.12",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "rollup": "^0.56.2",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-license": "^0.5.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-typescript2": "^0.11.1",
+    "rollup-plugin-uglify": "^3.0.0",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "@types/lodash.merge": "^4.6.3",
+    "@types/lodash.orderby": "^4.6.3",
+    "lodash.merge": "^4.6.1",
+    "lodash.orderby": "^4.6.0",
+    "orbital.core.common": "file:src/modules/orbital.core.common",
+    "orbital.core.node": "file:src/modules/orbital.core.node",
+    "orbital.core.types": "file:src/modules/orbital.core.types",
+    "orbital.core.web": "file:src/modules/orbital.core.web"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "orbital": {
+    "target": [
+      "node",
+      "web"
+    ],
+    "contributable": {
+      "services": [
+        {
+          "id": "orbital.core:package-manager",
+          "desc": "Orbital Package Manager service",
+          "permission": {
+            "call": {
+              "allow": "config",
+              "deny": "all"
+            },
+            "realize": {
+              "allow": "none",
+              "deny": "all"
+            }
+          },
+          "spec": {
+            "init": "function",
+            "install": "function",
+            "update": "function",
+            "uninstall": "function",
+            "on": "function",
+            "off": "function",
+            "list": "function",
+            "graph": "function"
+          }
+        },
+        {
+          "id": "orbital.core:logger",
+          "desc": "Logger service",
+          "permission": {
+            "call": {
+              "allow": "all"
+            },
+            "realize": {
+              "allow": "all"
+            }
+          },
+          "spec": {
+            "debug": "function",
+            "emphasize": "function",
+            "error": "function",
+            "getLevel": "function",
+            "info": "function",
+            "isReleased": "function",
+            "log": "function",
+            "nl": "function",
+            "pause": "function",
+            "release": "function",
+            "setLevel": "function",
+            "setPrompt": "function",
+            "silly": "function",
+            "spin": "function",
+            "trace": "function",
+            "update": "function",
+            "warn": "function"
+          }
+        },
+        {
+          "id": "orbital.core:project",
+          "desc": "Provides project information",
+          "permission": {
+            "call": {
+              "allow": "all"
+            },
+            "realize": {
+              "allow": "none",
+              "deny": "all"
+            }
+          },
+          "spec": {
+            "getConfig": "function",
+            "getRealPath": "function",
+            "getWebAppPath": "function",
+            "readConfig": "function"
+          }
+        }
+      ],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": []
+    }
+  }
+}

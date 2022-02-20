@@ -1,0 +1,10 @@
+{
+    "alias": {
+        "c": "config",
+        "e": "env",
+        "h": "help",
+        "v": "version",
+        "i": "install",
+        "w": "watch"
+    }
+}

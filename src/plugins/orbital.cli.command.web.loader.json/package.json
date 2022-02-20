@@ -1,0 +1,32 @@
+{
+  "name": "orbital.cli.command.web.loader.json",
+  "version": "0.1.0",
+  "description": "This package is able to load json file via amd loader require.js.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "orbital.cli.command.web": "file:../orbital.cli.command.web",
+    "require-text": "github:hwshim/require-json"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.cli.command.web:amd-loader",
+          "realize": "./src/extensions/json-loader.js"
+        }
+      ]
+    }
+  }
+}

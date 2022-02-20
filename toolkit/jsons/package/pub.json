@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "postinstall": "node scripts/install-plugins.js remote",
+    "prepublishOnly": "npm run lint && npm run build:libs && npm test",
+    "lint": "node node_modules/eslint/bin/eslint.js src runtime",
+    "pretest": "npm run build && npm run build:cli",
+    "build": "rollup -c rollup/config.js",
+    "build:cli": "rollup -c rollup/config.cli.js",
+    "build:libs": "npm run build:lib.common && npm run build:lib.web",
+    "build:lib.common": "npm run build --prefix runtime/modules/orbital.js.common",
+    "build:lib.web": "npm run build --prefix runtime/modules/orbital.js.web",
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+    "orbital.js.common": "^0.1.0",
+    "orbital.js.node": "^0.1.0",
+    "orbital.js.web": "^0.1.0"
+  }
+}

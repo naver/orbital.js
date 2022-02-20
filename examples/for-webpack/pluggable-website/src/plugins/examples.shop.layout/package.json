@@ -1,0 +1,82 @@
+{
+  "name": "examples.shop.layout",
+  "version": "0.2.0",
+  "description": "This package provides a layout for shop app",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shim Heungwoon <hw.shim@navercorp.com>",
+  "maintainers": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "orbital.i18n": "file:../../../../../../src/optional/orbital.i18n"
+  },
+  "orbital": {
+    "bundle": true,
+    "target": "web",
+    "activator": "./src/Activator.js",
+    "contributable": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "examples.shop.layout:contents",
+          "desc": "You can contribute ui(s) to the contents area.",
+          "spec": {
+            "getElement": "function",
+            "path": {
+              "type": "string",
+              "meta": true
+            }
+          }
+        },
+        {
+          "id": "examples.shop.layout:aside",
+          "desc": "You can contribute ui(s) to the aside area.",
+          "spec": {
+            "getView": "function"
+          }
+        },
+        {
+          "id": "examples.shop.layout:header",
+          "desc": "You can contribute ui(s) to the header area.",
+          "spec": {
+            "getView": "function"
+          }
+        }
+      ]
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.i18n:languages",
+          "realize": "./src/extensions/i18n/en.json",
+          "meta": {
+            "locale": "en"
+          }
+        },
+        {
+          "id": "orbital.i18n:languages",
+          "realize": "./src/extensions/i18n/fr.json",
+          "meta": {
+            "locale": "fr"
+          }
+        },
+        {
+          "id": "orbital.i18n:languages",
+          "realize": "./src/extensions/i18n/ko.json",
+          "meta": {
+            "locale": "ko"
+          }
+        }
+      ]
+    }
+  }
+}

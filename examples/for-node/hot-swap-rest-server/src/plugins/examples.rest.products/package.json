@@ -1,0 +1,33 @@
+{
+  "name": "examples.rest.products",
+  "version": "0.1.0",
+  "description": "products",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "examples.rest": "file:../examples.rest",
+    "examples.rest.util": "file:../examples.rest.util"
+  },
+  "orbital": {
+    "target": "node",
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [{
+        "id": "examples.rest:route",
+        "realize": "./src/extensions/route.js"
+      }, {
+        "id": "examples.rest:route",
+        "realize": "./src/extensions/route2.js"
+      }]
+    }
+  }
+}

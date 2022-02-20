@@ -1,0 +1,36 @@
+{
+  "name": "orbital.i18n.process.post.korean",
+  "version": "0.1.0",
+  "description": "Korean post processor for i18n",
+  "scripts": {
+    "prepare": "orbital -b",
+    "preinstall": "orbital -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Shim Heungwoon <hw.shim@navercorp.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "orbital.i18n": "file:../orbital.i18n"
+  },
+  "devDependencies": {
+  },
+  "orbital": {
+    "target": ["web", "node"],
+    "bundle": true,
+    "contributable": {
+      "services": [],
+      "extensions": []
+    },
+    "contributes": {
+      "services": [],
+      "extensions": [
+        {
+          "id": "orbital.i18n:post-process",
+          "realize": "./src/extensions/koreanPostProcess.js"
+        }
+      ]
+    }
+  }
+}
